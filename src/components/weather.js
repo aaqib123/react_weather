@@ -4,20 +4,36 @@ class Weather extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className="weather__info">
         {this.props.city && this.props.country && (
-          <p>
-            Location : {this.props.city}, {this.props.country}
+          <p className="weather__key">
+            Location:
+            <span className="weather__value">
+              {this.props.city}, {this.props.country}
+            </span>
           </p>
         )}
         {this.props.temperature && (
-          <p>temperature : {this.props.temperature}</p>
+          <p className="weather__key">
+            Temperature:
+            <span className="weather__value"> {this.props.temperature} </span>
+          </p>
         )}
-        {this.props.humidity && <p>humidity : {this.props.humidity}</p>}
+        {this.props.humidity && (
+          <p className="weather__key">
+            Humidity:
+            <span className="weather__value"> {this.props.humidity} </span>
+          </p>
+        )}
         {this.props.description && (
-          <p>description : {this.props.description}</p>
+          <p className="weather__key">
+            Conditions:
+            <span className="weather__value"> {this.props.description} </span>
+          </p>
         )}
-        {this.props.error && <p>{this.props.error}</p>}
+        {this.props.error && (
+          <p className="weather__error">{this.props.error}</p>
+        )}
       </div>
     );
   }
